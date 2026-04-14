@@ -356,7 +356,9 @@ function setProfileLinks() {
   const emailPlaceholder = PROFILE.emailAddress.includes("your-email");
 
   githubLink.href = PROFILE.githubUrl;
-  note.hidden = true;
+  if (note) {
+    note.hidden = true;
+  }
 
   if (emailPlaceholder) {
     emailLink.hidden = true;
@@ -366,7 +368,9 @@ function setProfileLinks() {
   }
 
   if (githubPlaceholder) {
-    note.hidden = false;
+    if (note) {
+      note.hidden = false;
+    }
     githubLink.title = "Replace the GitHub URL in main.js";
   }
 }
