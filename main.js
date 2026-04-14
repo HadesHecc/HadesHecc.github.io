@@ -1,6 +1,6 @@
 const PROFILE = {
   githubUrl: "https://github.com/HadesHecc",
-  emailAddress: "your-email@example.com",
+  emailAddress: "906561172@qq.com",
 };
 
 const HERO_TERMS = [
