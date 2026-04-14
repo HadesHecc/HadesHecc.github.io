@@ -124,20 +124,50 @@ body::after {
 
 .hero__frame {
   position: relative;
+  padding-top: 1rem;
+}
+
+.hero__frame::before {
+  content: "";
+  position: absolute;
+  left: 1.6rem;
+  top: 5.2rem;
+  bottom: 5.4rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(130, 245, 255, 0.32), rgba(130, 245, 255, 0));
+  opacity: 0.6;
 }
 
 .hero__intro {
-  width: min(760px, 100%);
-  padding: clamp(1.5rem, 3vw, 2.4rem);
-  border: 1px solid rgba(150, 181, 255, 0.18);
+  position: relative;
+  isolation: isolate;
+  width: min(980px, 100%);
+  padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.8rem, 3.8vw, 3rem) 2rem;
+}
+
+.hero__intro::before {
+  content: "";
+  position: absolute;
+  inset: -1.8rem -2.2rem -2rem -1.4rem;
+  z-index: -1;
+  border-radius: 2rem;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)),
-    linear-gradient(180deg, rgba(7, 12, 28, 0.72), rgba(7, 12, 28, 0.45));
-  box-shadow:
-    0 30px 80px rgba(4, 8, 24, 0.55),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    radial-gradient(circle at 32% 40%, rgba(100, 145, 255, 0.16), transparent 18rem),
+    radial-gradient(circle at 82% 26%, rgba(244, 102, 255, 0.14), transparent 19rem),
+    linear-gradient(135deg, rgba(11, 18, 40, 0.82), rgba(8, 13, 31, 0.46) 62%, rgba(8, 13, 31, 0.08));
+  box-shadow: 0 30px 90px rgba(4, 8, 24, 0.34);
   backdrop-filter: blur(8px);
-  clip-path: polygon(0 0, calc(100% - 1.5rem) 0, 100% 1.5rem, 100% 100%, 1.5rem 100%, 0 calc(100% - 1.5rem));
+}
+
+.hero__intro::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 1.15rem;
+  width: min(100%, 58rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(130, 245, 255, 0.2), rgba(130, 245, 255, 0));
+  z-index: -1;
 }
 
 .hero__eyebrow,
@@ -181,9 +211,10 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.2rem, 6.8vw, 7rem);
+  max-width: 100%;
+  font-size: clamp(3rem, 6vw, 6.15rem);
   line-height: 0.88;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
   text-wrap: balance;
   white-space: nowrap;
@@ -260,7 +291,8 @@ h1 {
 }
 
 .hero__scrollcue {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
+  padding-left: 1.8rem;
   font-size: 0.68rem;
   color: rgba(214, 228, 255, 0.52);
 }
@@ -424,8 +456,22 @@ h1 {
   }
 
   .hero__intro {
+    width: 100%;
     padding: 1.15rem 1rem 1.3rem;
-    clip-path: polygon(0 0, calc(100% - 0.9rem) 0, 100% 0.9rem, 100% 100%, 0.9rem 100%, 0 calc(100% - 0.9rem));
+  }
+
+  .hero__frame::before {
+    display: none;
+  }
+
+  .hero__intro::before {
+    inset: -0.9rem -0.6rem -1rem -0.4rem;
+    border-radius: 1.45rem;
+  }
+
+  .hero__intro::after {
+    left: 0;
+    top: 0.75rem;
   }
 
   .hero__eyebrow,
@@ -446,6 +492,10 @@ h1 {
 
   .hero__summary {
     font-size: 0.94rem;
+  }
+
+  .hero__scrollcue {
+    padding-left: 0;
   }
 
   .hero__actions {
